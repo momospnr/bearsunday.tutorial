@@ -1,5 +1,5 @@
 <?php
-namespace MyVendor\Weekday\Resource\Page;
+namespace MyVendor\Weekday\Resource\App;
 
 use BEAR\Resource\ResourceObject;
 
