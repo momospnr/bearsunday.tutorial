@@ -1,0 +1,38 @@
+version: '2'
+
+services:
+  nginx:
+    container_name: nginx
+    image: momoirospanner/nginx
+    ports:
+      - 8080:80
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf
+    volumes_from:
+      - php
+    restart: always
+
+  php:
+    container_name: php
+    image: momoirospanner/php-composer
+    volumes:
+      - ./src:/var/www/html
+    restart: always
+
+  mysql:
+    container_name: mysql
+    image: mariadb:10.4.0
+    environment:
+      MYSQL_ROOT_PASSWORD: rootpassword
+      MYSQL_USER:     test
+      MYSQL_PASSWORD: test
+      MYSQL_DATABASE: test
+    ports:
+      - 13306:3306
+    volumes:
+      - mysql-db:/var/lib/mysql
+    restart: always
+
+volumes:
+  mysql-db:
+    driver: local
