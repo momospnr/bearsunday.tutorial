@@ -7,7 +7,7 @@ use BEAR\Resource\ResourceObject;
 use Koriym\HttpConstants\ResponseHeader;
 use PHPUnit\Framework\TestCase;
 
-class TicketTest extends TestCase
+class TicketsTest extends TestCase
 {
   /**
    * @var ResourceInterface
@@ -28,10 +28,10 @@ class TicketTest extends TestCase
       'assignee' => 'assignee1'
     ]);
     $this->assertSame(201, $ro->code);
-    $this->aseertContains('/ticket?id=', $ro->headers['Location']);
+    $this->assertContains('/ticket?id=', $ro->headers['Location']);
 
     return $ro;
-  }  
+  }
 
   /**
    * @depends testOnPost
