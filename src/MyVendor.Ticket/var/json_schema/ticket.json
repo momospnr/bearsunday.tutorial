@@ -40,6 +40,6 @@
       "format": "datetime"
     }
   },
-  "required": ["title"],
+  "required": ["title", "description", "status", "assignee", "created_at", "updated_at"],
   "additionalProperties": false
 }
